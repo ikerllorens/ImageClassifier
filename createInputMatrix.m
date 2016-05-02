@@ -18,7 +18,6 @@ else
         varargin{i} = varargin{i}(1:length(varargin{1}(:,1)), 1:minimum_length);
         input_matrix = horzcat(input_matrix, varargin{1});
     end
-    
 end
 end
 
