@@ -37,8 +37,11 @@ arect = STATS(2,:).*STATS(3,:);
 rectangularity = STATS(1,:)./arect;
 formFactor = (4*pi.*STATS(1,:))./(STATS(7,:).^2);
 MayMen =  STATS(2,:)./STATS(3,:);
+Radius = STATS(2,:)./2;
+Circularity = STATS(1,:)./(pi.*Radius.^2);
 
-STATS = vertcat(STATS, arect, rectangularity, formFactor, MayMen);
+
+STATS = vertcat(STATS, arect, rectangularity, formFactor, MayMen, Radius, Circularity);
 
 %area_s = regionprops(L,'area');
 % area = struct2cell(area_s);
