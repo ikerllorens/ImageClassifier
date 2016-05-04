@@ -20,16 +20,26 @@ BW_nobord = bwareaopen(BW_nobord, 50,4);
 BW_fill = imfill(BW_nobord, 'holes');
 
 
-subplot(1,2,1),imshow(Im,[]);
-subplot(1,2,2),imshow(BW_fill,[]);
+%subplot(1,2,1),imshow(Im,[]);
+%subplot(1,2,2),imshow(BW_fill,[]);
 
 [L,Num] = bwlabel(BW_fill,8);
 
 STATS = regionprops(L, 'Area', 'MajorAxisLength', 'MinorAxisLength', 'Eccentricity', 'ConvexArea' ...
     , 'EquivDiameter', 'Perimeter', 'Solidity', 'Extent');
 
+
+
 STATS = struct2cell(STATS);
 STATS = cell2mat(STATS);
+
+arect = STATS(2,:).*STATS(3,:);
+rectangularity = STATS(1,:)./arect;
+formFactor = (4*pi.*STATS(1,:))./(STATS(7,:).^2);
+MayMen =  STATS(2,:)./STATS(3,:);
+
+STATS = vertcat(STATS, arect, rectangularity, formFactor, MayMen);
+
 %area_s = regionprops(L,'area');
 % area = struct2cell(area_s);
 

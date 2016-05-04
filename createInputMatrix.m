@@ -1,4 +1,4 @@
-function [ input_matrix ] = createInputMatrix( varargin )
+function [ input_matrix, minimum_length ] = createInputMatrix( varargin )
 
 argC = length(varargin);
 minimum_length = 10000000000000000;
@@ -15,8 +15,8 @@ else
     
     %Truncar las matrices al tama?o obtenido arriba y concatenarlas
     for i = 1:argC
-        varargin{i} = varargin{i}(1:length(varargin{1}(:,1)), 1:minimum_length);
-        input_matrix = horzcat(input_matrix, varargin{1});
+        varargin{i} = varargin{i}(1:length(varargin{i}(:,1)), 1:minimum_length);
+        input_matrix = horzcat(input_matrix, varargin{i});
     end
 end
 end
