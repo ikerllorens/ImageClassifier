@@ -234,4 +234,11 @@ stats20_9 = getImageStats(images{200});
     stats19, stats19_1, stats19_2, stats19_3, stats19_4, stats19_5, stats19_6, stats19_7, stats19_8, stats19_9,...
     stats20, stats20_1, stats20_2, stats20_3, stats20_4, stats20_5, stats20_6, stats20_7, stats20_8, stats20_9);
 
+input_matrix = [input_matrix input_matrix];
+input_matrix = [input_matrix input_matrix];
+input_matrix = [input_matrix input_matrix];
+input_matrix = [input_matrix input_matrix];
+input_matrix = [input_matrix input_matrix];
+
+
 end
