@@ -1,4 +1,4 @@
-function [STATS] = getImageStats(Im)
+function [STATS, L] = getImageStats(Im)
 %Im = imread('proyecto110.jpg');
 Im = rgb2gray(Im);
 H = fspecial('average');
@@ -42,7 +42,7 @@ Circularity = STATS(1,:)./(pi.*Radius.^2);
 Squarity = sqrt(STATS(1,:));
 Logarity = log(Squarity);
 
-STATS = vertcat(STATS, arect, rectangularity, formFactor, MayMen, Radius, Circularity, Squarity, Logarity);
+STATS = vertcat(STATS, arect, rectangularity, formFactor, MayMen, Radius, Circularity);%, Squarity, Logarity);
 
 %area_s = regionprops(L,'area');
 % area = struct2cell(area_s);
