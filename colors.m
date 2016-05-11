@@ -1,6 +1,6 @@
-[mx, idx] = max(result);
-zer =zeros(size(result));
-for i = 1:length(result(1,:)) 
-    zer(sub2ind(size(result), idx(i), i)) = 1;
+[mx, idx] = max(Colores);
+zer =zeros(size(Colores));
+for i = 1:length(Colores(1,:)) 
+    zer(sub2ind(size(Colores), idx(i), i)) = 1;
 end
-result = zer;
+Colores = zer;

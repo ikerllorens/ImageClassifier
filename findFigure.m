@@ -1,4 +1,4 @@
-function [ res , RGB] = findFigure( L,Im,tipo,netRes)
+function [ res , RGB,num,zer] = findFigure( L,Im,tipo,netRes)
 %L viene de regionprops()
 %Im es la imagen original RGB
 %tipo es la figura de 1-20
@@ -17,6 +17,7 @@ netRes = zer;
 [j,num] = find(netRes(tipo,:)==1);
 
 RGB = [];
+pos=[];
 
 [col,row] = size(num);
 temp = zeros(size(L));
