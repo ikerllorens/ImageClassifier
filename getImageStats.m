@@ -17,6 +17,10 @@ BW_nobord = imclearborder(BW_dil,4);
 
 BW_nobord = bwareaopen(BW_nobord, 50,4);
 
+BW_nobord = bwmorph(BW_nobord, 'clean');
+BW_nobord = bwmorph(BW_nobord, 'majority');
+BW_nobord = bwmorph(BW_nobord, 'hbreak');
+
 BW_fill = imfill(BW_nobord, 'holes');
 
 
@@ -48,6 +52,8 @@ OnPixelRatio = STATS(10,:)./STATS(1,:);
 STATS = vertcat(STATS, arect, rectangularity, formFactor, MayMen, Radius, Circularity, OnPixelRatio, Squarity, Logarity);
 
 
+%[X, Y] = find(STATS(1,:)>= max(STATS(1,:))-300);
+%STATS(:,Y) = [];
 
 %area_s = regionprops(L,'area');
 % area = struct2cell(area_s);
