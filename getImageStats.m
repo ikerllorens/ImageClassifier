@@ -26,8 +26,9 @@ BW_fill = imfill(BW_nobord, 'holes');
 [L,Num] = bwlabel(BW_fill,8);
 
 STATS = regionprops(L, 'Area', 'MajorAxisLength', 'MinorAxisLength', 'Eccentricity', 'ConvexArea' ...
-    , 'EquivDiameter', 'Perimeter', 'Solidity', 'Extent');
+    , 'EquivDiameter', 'Perimeter', 'Solidity', 'Extent', 'FilledArea');
 
+%Candidates: EulerNumber
 
 
 STATS = struct2cell(STATS);
@@ -40,9 +41,11 @@ MayMen =  STATS(2,:)./STATS(3,:);
 Radius = STATS(2,:)./2;
 Circularity = STATS(1,:)./(pi.*Radius.^2);
 Squarity = sqrt(STATS(1,:));
-Logarity = log(Squarity);
+Logarity = exp(Squarity);
+OnPixelRatio = STATS(10,:)./STATS(1,:);
 
-STATS = vertcat(STATS, arect, rectangularity, formFactor, MayMen, Radius, Circularity);%, Squarity, Logarity);
+
+STATS = vertcat(STATS, arect, rectangularity, formFactor, MayMen, Radius, Circularity, OnPixelRatio, Squarity, Logarity);
 
 
 
