@@ -1,8 +1,9 @@
-function [ RGB ] = getColors( )
+function [ RGB_input] = getColors( )
 
-RGB = [];
+RGB_input = [];
 imagefiles = dir('*.jpeg');
 nfiles = length(imagefiles); % Number of files found
+
 for ii=1:nfiles
 currentfilename = imagefiles(ii).name;
 currentimage = imread(currentfilename);
@@ -16,8 +17,10 @@ G = mean(tempG(:));
 tempB = temp(:,:,3);
 B = mean(tempB(:));
 
-RGB = horzcat(RGB, [R;G;B]);
+RGB_input = horzcat(RGB_input, [R;G;B]);
 
 end
+
+%cambiar cantidad de muestras por color
 
 end

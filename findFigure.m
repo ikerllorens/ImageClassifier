@@ -35,9 +35,9 @@ for i = 1:row
     G = Im(X, Y, 2);
     B = Im(X, Y, 3);
 
-    R_avg = median(R(:));
-    G_avg = median(G(:));
-    B_avg = median(B(:));
+    R_avg = mean(R(:));
+    G_avg = mean(G(:));
+    B_avg = mean(B(:));
     
     
     RGB = horzcat(RGB, [R_avg; G_avg; B_avg]);
