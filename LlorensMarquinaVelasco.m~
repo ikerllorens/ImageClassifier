@@ -14,22 +14,20 @@ Final = [];
 for i=1:20
     [~,RGB,~,~] = findFigure(L,Im,i,netRes);
     toc
-    RGB = RGB';
-    Result = bayesgauss(RGB, CA, MA);
+    colors = bayesgauss(RGB', CA, MA);
     %Colores = net_col(RGB);
     %colors;
     %Colores = sum(Colores,2);
     Colores = zeros(1,10);
-    for j=1:numel(Result)
-     
-        Colores(Result(j)) = Colores(Result(j)) + 1;
+    for j=1:length(colors)
+        Colores(colors())
     end
     
-    Final = vertcat(Final,Colores);
+    Final = horzcat(Final,Colores);
 end
 toc
 %figSum = sum(netResNorm,2);
-%Final = transpose(Final);
+Final = transpose(Final);
 sum(Final(:))
 toc
 

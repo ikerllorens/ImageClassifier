@@ -39,6 +39,17 @@ WhiteImage_3 = [9, 15, 17, 23, 20, 30, 52, 53, 71, 67, 96, 98];
 GrayImage_3 = [2, 3, 8, 12, 24, 60, 79, 86, 87, 101, 108];
 BlackImage_3 = [11, 16, 25, 28, 41, 37, 61, 95];
 
+RedImage_4 = [13, 18, 37, 24, 67, 53, 55, 63, 94, 86, 83, 87, 98, 101, 115];
+OrangeImage_4 = [7, 16, 44, 57, 56, 60, 52, 61, 91, 95, 114];
+YellowImage_4 = [9, 26, 33, 41, 45, 69, 58, 76, 89, 102];
+GreenImage_4 = [11, 12, 29, 34, 28, 47, 51, 54, 40, 84, 81, 90, 107, 111];
+BlueImage_4 = [6, 15, 35, 48, 68, 72, 70, 71, 77, 97, 99, 103, 112, 96, 113, 105];
+MarineImage_4 = [3, 20, 25, 31, 49, 62, 65, 85, 78, 109, 118];
+PurpleImage_4 = [10, 23, 36, 17, 21, 27, 22, 39, 46, 43, 50, 59, 80, 88, 100];
+WhiteImage_4 = [8, 42, 32, 74, 117];
+GrayImage_4 = [1, 38, 64, 66, 79, 92, 93, 106, 108];
+BlackImage_4 = [4, 5, 19, 14, 75, 82, 104, 110];
+
 %% Imagen imagenprueba.jpg
 
 image_input = imread('testing/imagenprueba.jpg');
@@ -445,6 +456,140 @@ for i=1:length(BlackImage_3)
    
     Blacks = horzcat(Blacks, [R_avg; G_avg; B_avg]);
 end
+
+
+%% 
+image_input = imread('testing/proyecto112.jpg');
+[~, L, ~] = getImageStats(image_input);
+
+for i=1:length(RedImage_4)
+    avgMat(:,:,1) = (uint8(L==RedImage_4(i)).* image_input(:,:,1));
+    avgMat(:,:,2) = (uint8(L==RedImage_4(i)).* image_input(:,:,2));
+    avgMat(:,:,3) = (uint8(L==RedImage_4(i)).* image_input(:,:,3));
+    
+    R_avg = mean(nonzeros(avgMat(:,:,1)));
+    G_avg = mean(nonzeros(avgMat(:,:,2)));
+    B_avg = mean(nonzeros(avgMat(:,:,3)));
+   
+    Reds = horzcat(Reds, [R_avg; G_avg; B_avg]);
+end
+
+for i=1:length(OrangeImage_4)
+    avgMat(:,:,1) = (uint8(L==OrangeImage_4(i)).* image_input(:,:,1));
+    avgMat(:,:,2) = (uint8(L==OrangeImage_4(i)).* image_input(:,:,2));
+    avgMat(:,:,3) = (uint8(L==OrangeImage_4(i)).* image_input(:,:,3));
+    
+    R_avg = mean(nonzeros(avgMat(:,:,1)));
+    G_avg = mean(nonzeros(avgMat(:,:,2)));
+    B_avg = mean(nonzeros(avgMat(:,:,3)));
+   
+    Oranges = horzcat(Oranges, [R_avg; G_avg; B_avg]);
+end
+
+
+for i=1:length(YellowImage_4)
+    avgMat(:,:,1) = (uint8(L==YellowImage_4(i)).* image_input(:,:,1));
+    avgMat(:,:,2) = (uint8(L==YellowImage_4(i)).* image_input(:,:,2));
+    avgMat(:,:,3) = (uint8(L==YellowImage_4(i)).* image_input(:,:,3));
+    
+    R_avg = mean(nonzeros(avgMat(:,:,1)));
+    G_avg = mean(nonzeros(avgMat(:,:,2)));
+    B_avg = mean(nonzeros(avgMat(:,:,3)));
+   
+    Yellows = horzcat(Yellows, [R_avg; G_avg; B_avg]);
+end
+
+
+for i=1:length(GreenImage_4)
+    avgMat(:,:,1) = (uint8(L==GreenImage_4(i)).* image_input(:,:,1));
+    avgMat(:,:,2) = (uint8(L==GreenImage_4(i)).* image_input(:,:,2));
+    avgMat(:,:,3) = (uint8(L==GreenImage_4(i)).* image_input(:,:,3));
+    
+    R_avg = mean(nonzeros(avgMat(:,:,1)));
+    G_avg = mean(nonzeros(avgMat(:,:,2)));
+    B_avg = mean(nonzeros(avgMat(:,:,3)));
+   
+    Greens = horzcat(Greens, [R_avg; G_avg; B_avg]);
+end
+
+
+for i=1:length(BlueImage_4)
+    avgMat(:,:,1) = (uint8(L==BlueImage_4(i)).* image_input(:,:,1));
+    avgMat(:,:,2) = (uint8(L==BlueImage_4(i)).* image_input(:,:,2));
+    avgMat(:,:,3) = (uint8(L==BlueImage_4(i)).* image_input(:,:,3));
+    
+    R_avg = mean(nonzeros(avgMat(:,:,1)));
+    G_avg = mean(nonzeros(avgMat(:,:,2)));
+    B_avg = mean(nonzeros(avgMat(:,:,3)));
+   
+    Blues = horzcat(Blues, [R_avg; G_avg; B_avg]);
+end
+
+for i=1:length(MarineImage_4)
+    avgMat(:,:,1) = (uint8(L==MarineImage_4(i)).* image_input(:,:,1));
+    avgMat(:,:,2) = (uint8(L==MarineImage_4(i)).* image_input(:,:,2));
+    avgMat(:,:,3) = (uint8(L==MarineImage_4(i)).* image_input(:,:,3));
+    
+    R_avg = mean(nonzeros(avgMat(:,:,1)));
+    G_avg = mean(nonzeros(avgMat(:,:,2)));
+    B_avg = mean(nonzeros(avgMat(:,:,3)));
+   
+    Marines = horzcat(Marines, [R_avg; G_avg; B_avg]);
+end
+
+
+for i=1:length(PurpleImage_4)
+    avgMat(:,:,1) = (uint8(L==PurpleImage_4(i)).* image_input(:,:,1));
+    avgMat(:,:,2) = (uint8(L==PurpleImage_4(i)).* image_input(:,:,2));
+    avgMat(:,:,3) = (uint8(L==PurpleImage_4(i)).* image_input(:,:,3));
+    
+    R_avg = mean(nonzeros(avgMat(:,:,1)));
+    G_avg = mean(nonzeros(avgMat(:,:,2)));
+    B_avg = mean(nonzeros(avgMat(:,:,3)));
+   
+    Purples = horzcat(Purples, [R_avg; G_avg; B_avg]);
+end
+
+
+for i=1:length(WhiteImage_4)
+    avgMat(:,:,1) = (uint8(L==WhiteImage_4(i)).* image_input(:,:,1));
+    avgMat(:,:,2) = (uint8(L==WhiteImage_4(i)).* image_input(:,:,2));
+    avgMat(:,:,3) = (uint8(L==WhiteImage_4(i)).* image_input(:,:,3));
+    
+    R_avg = mean(nonzeros(avgMat(:,:,1)));
+    G_avg = mean(nonzeros(avgMat(:,:,2)));
+    B_avg = mean(nonzeros(avgMat(:,:,3)));
+   
+    Whites = horzcat(Whites, [R_avg; G_avg; B_avg]);
+end
+
+
+for i=1:length(GrayImage_4)
+    avgMat(:,:,1) = (uint8(L==GrayImage_4(i)).* image_input(:,:,1));
+    avgMat(:,:,2) = (uint8(L==GrayImage_4(i)).* image_input(:,:,2));
+    avgMat(:,:,3) = (uint8(L==GrayImage_4(i)).* image_input(:,:,3));
+    
+    R_avg = mean(nonzeros(avgMat(:,:,1)));
+    G_avg = mean(nonzeros(avgMat(:,:,2)));
+    B_avg = mean(nonzeros(avgMat(:,:,3)));
+   
+    Grays = horzcat(Grays, [R_avg; G_avg; B_avg]);
+end
+
+
+for i=1:length(BlackImage_4)
+    avgMat(:,:,1) = (uint8(L==BlackImage_4(i)).* image_input(:,:,1));
+    avgMat(:,:,2) = (uint8(L==BlackImage_4(i)).* image_input(:,:,2));
+    avgMat(:,:,3) = (uint8(L==BlackImage_4(i)).* image_input(:,:,3));
+    
+    R_avg = mean(nonzeros(avgMat(:,:,1)));
+    G_avg = mean(nonzeros(avgMat(:,:,2)));
+    B_avg = mean(nonzeros(avgMat(:,:,3)));
+   
+    Blacks = horzcat(Blacks, [R_avg; G_avg; B_avg]);
+end
+
+
 
 
 %% Output
