@@ -7,15 +7,19 @@ load('CA_Final.mat')
 load('MA_Final.mat')
 %imageName = input('Nombre de imagen: ', 's');
 [STATS,L,Im] = getImageStats(image);
-toc
+%toc
 netRes = net(STATS);
-toc
+%toc
 Final = [];
 for i=1:20
     [~,RGB,~,~] = findFigure(L,Im,i,netRes);
-    toc
+    %toc
     RGB = RGB';
-    Result = bayesgauss(RGB, CA, MA);
+    Result= [];
+    if  ~isempty(RGB) 
+     Result = bayesgauss(RGB, CA, MA);
+    
+    end
     %Colores = net_col(RGB);
     %colors;
     %Colores = sum(Colores,2);
@@ -27,7 +31,7 @@ for i=1:20
     
     Final = vertcat(Final,Colores);
 end
-toc
+%toc
 %figSum = sum(netResNorm,2);
 %Final = transpose(Final);
 sum(Final(:))
